@@ -18,7 +18,7 @@ function App() {
             Architect with hands-on experience in Lambda, DynamoDB, API Gateway,
             Cognito, AppSync, IoT Core, and DocumentDB.
           </p>
-          <a href="src/assets/Muhammad Imam Hasan Full Stack Developer.pdf" className="resume-btn" target="_blank">Download Resume</a>
+          <a href="/Muhammad Imam Hasan Full Stack Developer.pdf" className="resume-btn" target="_blank">Download Resume</a>
         </section>
 
         <section className="section">
