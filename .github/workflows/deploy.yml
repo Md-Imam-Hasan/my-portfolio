@@ -18,11 +18,15 @@ jobs:
         with:
           node-version: 18
       
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build React app
-        run: npm run build
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+          
+      - name: Verify build directory exists
+        run: |
+          ls -la
+          ls -la build/
       
       - name: Sync files to S3
         uses: jakejarvis/s3-sync-action@master
@@ -33,7 +37,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: 'build/'
+          SOURCE_DIR: 'build'
       
       - name: Create CloudFront Invalidation
         uses: chetan/invalidate-cloudfront-action@v2
